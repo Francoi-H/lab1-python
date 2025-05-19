@@ -1,0 +1,16 @@
+import tensorflow as tf
+import tensorflow_datasets as tfds
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Helper function to plot images
+def plot_images(dataset, class_names, n=9):
+    plt.figure(figsize=(10, 10))
+    for i, (image, label) in enumerate(dataset.take(n)):
+        ax = plt.subplot(3, 3, i + 1)
+        plt.imshow(image)
+        plt.title(class_names[label.numpy()])
+        plt.axis("off")
+    plt.show()
+
+print("TensorFlow version:", tf.__version__)
